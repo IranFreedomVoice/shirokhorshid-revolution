@@ -41,6 +41,7 @@
       background: rgba(0,0,0,0.35);
       padding: 6px 10px;
       border-radius: 10px;
+      z-index: 5;
     }
 
     .top-controls {
@@ -78,6 +79,7 @@
       border-radius: 10px;
       line-height: 1;
       cursor: pointer;
+      user-select: none;
     }
 
     .container {
@@ -124,9 +126,6 @@
     }
 
     .video-card {
-      display: block;
-      text-decoration: none;
-      color: #111;
       background: #fff;
       border: 2px solid #999;
       border-radius: 22px;
@@ -134,12 +133,11 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.12);
     }
 
-    .video-card img {
+    .video-card video {
       width: 100%;
-      height: 240px;
-      object-fit: cover;
+      height: auto;
       display: block;
-      background: #ddd;
+      background: #000;
     }
 
     .video-text {
@@ -147,6 +145,7 @@
       font-size: 20px;
       font-weight: 700;
       text-align: center;
+      line-height: 1.5;
     }
 
     @media (min-width: 800px) {
@@ -187,10 +186,6 @@
       .video-text {
         font-size: 18px;
       }
-
-      .video-card img {
-        height: 210px;
-      }
     }
   </style>
 </head>
@@ -216,19 +211,24 @@
       <img src="pahlavi-1.jpg" alt="Prince Reza Pahlavi" />
       <div class="hero-caption">Important Message</div>
     </div>
-
     <div class="section-title">Important Videos</div>
 
     <div class="video-grid">
-      <a class="video-card" href="#">
-        <img src="video-1.jpg" alt="Video 1" />
-        <div class="video-text">Important Video 1</div>
-      </a>
+      <div class="video-card">
+        <video controls poster="video-1.jpg">
+          <source src="video-1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-text">Reza Pahlavi's vision for a democratic future for Iran</div>
+      </div>
 
-      <a class="video-card" href="#">
-        <img src="video-2.jpg" alt="Video 2" />
-        <div class="video-text">Important Video 2</div>
-      </a>
+      <div class="video-card">
+        <video controls poster="video-2.jpg">
+          <source src="video-2.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        <div class="video-text">An Italian message to Iranians: do not repeat our mistake</div>
+      </div>
     </div>
   </div>
 
