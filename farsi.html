@@ -5,167 +5,204 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>انقلاب شیر و خورشید</title>
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-    html, body {
+    body {
       margin: 0;
-      padding: 0;
-      width: 100%;
-      min-height: 100%;
       background: #d9f6f7;
       font-family: Tahoma, Arial, sans-serif;
       color: #111;
     }
 
+    .topbar {
+      background: #f5f5f5;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 16px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .left-tools {
+      position: relative;
+      direction: ltr;
+    }
+
+    .lang-btn {
+      border: 1px solid #bbb;
+      background: #fff;
+      border-radius: 8px;
+      padding: 7px 12px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .lang-menu {
+      display: none;
+      position: absolute;
+      top: 42px;
+      left: 0;
+      width: 140px;
+      background: #fff;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+      overflow: hidden;
+      z-index: 1001;
+    }
+
+    .lang-menu.open {
+      display: block;
+    }
+
+    .lang-menu a {
+      display: block;
+      padding: 10px 12px;
+      text-decoration: none;
+      color: #111;
+      font-size: 14px;
+      border-bottom: 1px solid #eee;
+      text-align: left;
+    }
+
+    .lang-menu a:last-child {
+      border-bottom: none;
+    }
+
+    .center-nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      flex: 1;
+    }
+
+    .center-nav a {
+      text-decoration: none;
+      color: #222;
+      font-size: 15px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .center-nav a.highlight {
+      background: #f3a9a9;
+      color: #4b1d1d;
+      padding: 7px 12px;
+      border-radius: 999px;
+    }
+
+    .right-brand {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      direction: ltr;
+      white-space: nowrap;
+    }
+
+    .brand-text {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.1;
+      text-align: right;
+    }
+
+    .brand-text small {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #444;
+    }
+
+    .brand-flag {
+      width: 42px;
+      height: 42px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      background: #fff;
+    }
+
     .hero {
       position: relative;
       width: 100%;
-      background: #000;
-      overflow: visible;
+      min-height: 78vh;
+      background: #0f1b35;
+      overflow: hidden;
     }
 
-    .hero img.flag {
-      width: 100%;
-      display: block;
-    }
-
-    .site-title {
+    .hero::before {
+      content: "";
       position: absolute;
-      top: 14px;
-      left: 16px;
-      color: #fff;
-      font-size: 16px;
-      font-weight: 700;
-      background: rgba(0,0,0,0.35);
-      padding: 6px 10px;
-      border-radius: 10px;
-      z-index: 100;
+      inset: 0;
+      background:
+        linear-gradient(rgba(10,20,45,0.45), rgba(10,20,45,0.45)),
+        url("pahlavi-1.jpg") center center / cover no-repeat;
     }
 
-    .top-controls {
-      position: absolute;
-      top: 12px;
-      right: 14px;
-      left: auto;
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      margin: 0 auto;
+      min-height: 78vh;
       display: flex;
-      flex-direction: row;
       align-items: center;
-      gap: 8px;
-      z-index: 120;
-      direction: ltr;
-    }
-
-    .lang-mini {
-      display: flex;
-      gap: 6px;
-      background: rgba(0,0,0,0.35);
-      padding: 6px 8px;
-      border-radius: 10px;
-      direction: ltr;
-    }
-
-    .lang-mini a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 12px;
-      font-weight: 700;
-      padding: 2px 4px;
-    }
-
-    .menu-icon {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 46px;
-      height: 40px;
-      border: none;
-      cursor: pointer;
-      color: #fff;
-      font-size: 24px;
-      font-weight: 700;
-      background: rgba(0,0,0,0.35);
-      border-radius: 10px;
-      line-height: 1;
-      user-select: none;
-      z-index: 130;
-    }
-
-    .dropdown-menu {
-      display: none;
-      position: absolute;
-      top: 60px;
-      right: 14px;
-      left: auto;
-      width: 250px;
-      background: rgba(0, 70, 35, 0.97);
-      border-radius: 16px;
-      padding: 12px;
-      z-index: 140;
-      box-shadow: 0 10px 24px rgba(0,0,0,0.22);
-      direction: rtl;
+      justify-content: flex-end;
+      padding: 50px 24px;
       text-align: right;
     }
 
-    .dropdown-menu.open {
-      display: block;
-    }
-
-    .dropdown-menu a {
-      display: block;
+    .hero-text {
+      max-width: 620px;
       color: #fff;
-      text-decoration: none;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    }
+
+    .hero-text .line1 {
+      font-size: 30px;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+
+    .hero-text .line2 {
+      font-size: 64px;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .hero-text .line3 {
+      font-size: 22px;
       font-weight: 700;
-      padding: 10px 12px;
-      border-radius: 12px;
-      margin-bottom: 8px;
-      background: rgba(255,255,255,0.10);
-      text-align: right;
+      opacity: 0.95;
     }
 
-    .dropdown-menu a:last-child {
-      margin-bottom: 0;
-    }
-
-    .container {
+    .section {
       max-width: 1100px;
       margin: 0 auto;
-      padding: 20px 16px 50px;
-    }
-
-    .hero-box {
-      background: #fff;
-      border: 2px solid #999;
-      border-radius: 22px;
-      padding: 14px;
-      margin-bottom: 26px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
-    }
-
-    .hero-box img {
-      width: 100%;
-      height: auto;
-      border-radius: 18px;
-      display: block;
-    }
-
-    .hero-caption {
-      margin-top: 12px;
-      font-size: 20px;
-      font-weight: 700;
+      padding: 34px 16px 50px;
     }
 
     .section-title {
-      font-size: 26px;
-      font-weight: 700;
-      margin: 26px 0 18px;
       text-align: center;
+      font-size: 28px;
+      font-weight: 800;
+      margin: 0 0 24px;
     }
 
     .video-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 18px;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
 
     .video-card {
@@ -178,105 +215,169 @@
 
     .video-card video {
       width: 100%;
-      height: auto;
       display: block;
       background: #000;
     }
 
     .video-text {
       padding: 14px;
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 700;
       text-align: center;
       line-height: 1.7;
     }
 
-    @media (min-width: 800px) {
-      .video-grid {
-        grid-template-columns: 1fr 1fr;
+    @media (max-width: 980px) {
+      .topbar {
+        gap: 10px;
+      }
+
+      .center-nav {
+        gap: 12px;
+      }
+
+      .center-nav a {
+        font-size: 14px;
+      }
+
+      .hero-text .line1 {
+        font-size: 24px;
+      }
+
+      .hero-text .line2 {
+        font-size: 48px;
       }
     }
 
-    @media (max-width: 600px) {
-      .site-title {
-        font-size: 13px;
-        top: 10px;
-        left: 10px;
-        padding: 5px 8px;
+    @media (max-width: 760px) {
+      .topbar {
+        flex-wrap: wrap;
+        align-items: flex-start;
       }
 
-      .top-controls {
-        top: 10px;
-        right: 10px;
-        left: auto;
-        gap: 6px;
+      .left-tools {
+        order: 1;
       }
 
-      .lang-mini {
-        gap: 4px;
-        padding: 5px 6px;
+      .right-brand {
+        order: 2;
+        margin-right: auto;
       }
 
-      .lang-mini a {
-        font-size: 11px;
+      .center-nav {
+        order: 3;
+        width: 100%;
+        justify-content: center;
+        padding-top: 4px;
       }
 
-      .menu-icon {
-        width: 40px;
-        height: 36px;
-        font-size: 20px;
+      .hero {
+        min-height: 62vh;
       }
 
-      .dropdown-menu {
-        top: 54px;
-        right: 10px;
-        left: auto;
-        width: 220px;
+      .hero-content {
+        min-height: 62vh;
+        justify-content: center;
+        text-align: center;
       }
 
-      .hero-caption,
-      .video-text {
+      .hero-text {
+        text-align: center;
+      }
+
+      .hero-text .line1 {
+        font-size: 21px;
+      }
+
+      .hero-text .line2 {
+        font-size: 38px;
+      }
+
+      .hero-text .line3 {
         font-size: 18px;
       }
 
-      .section-title {
-        font-size: 22px;
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .video-text {
+        font-size: 18px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand-text {
+        font-size: 13px;
+      }
+
+      .brand-flag {
+        width: 36px;
+        height: 36px;
+      }
+
+      .lang-btn {
+        padding: 6px 10px;
+        font-size: 13px;
+      }
+
+      .center-nav {
+        gap: 10px;
+      }
+
+      .center-nav a {
+        font-size: 13px;
+      }
+
+      .hero-text .line2 {
+        font-size: 32px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="hero">
-    <img class="flag" src="flag-main.jpg" alt="پرچم شیر و خورشید" />
-
-    <div class="site-title">انقلاب شیر و خورشید</div>
-
-    <div class="top-controls">
-      <div class="lang-mini">
-        <a href="index.html">EN</a>
-        <a href="farsi.html">FA</a>
-        <a href="deutsch.html">DE</a>
+  <header class="topbar">
+    <div class="left-tools">
+      <button class="lang-btn" id="langBtn">FA ▾</button>
+      <div class="lang-menu" id="langMenu">
+        <a href="index.html">English</a>
+        <a href="farsi.html">فارسی</a>
+        <a href="deutsch.html">Deutsch</a>
       </div>
-      <button class="menu-icon" id="menuButton" type="button">☰</button>
     </div>
 
-    <div id="dropdownMenu" class="dropdown-menu">
-      <a href="urgent-fa.html">اقدامات فوری</a>
-      <a href="history-fa.html">تاریخ</a>
-      <a href="martyrs-fa.html">جاویدنامان</a>
-      <a href="transition-fa.html">برنامه گذار شاهزاده</a>
+    <nav class="center-nav">
+      <a href="about-fa.html">درباره</a>
+      <a href="statement-fa.html">بیانیه‌ها</a>
+      <a href="news-fa.html">خبرها</a>
+      <a href="videos-fa.html">ویدیوها</a>
+      <a href="sources-fa.html">منابع</a>
       <a href="contact.html">ارتباط</a>
-    </div>
-  </div>
+      <a href="urgent-fa.html" class="highlight">اقدامات فوری</a>
+    </nav>
 
-  <div class="container">
-    <div class="hero-box">
-      <img src="pahlavi-1.jpg" alt="شاهزاده رضا پهلوی" />
-      <div class="hero-caption">پیام مهم</div>
+    <div class="right-brand">
+      <div class="brand-text">
+        رضا پهلوی
+        <small>REZA PAHLAVI</small>
+      </div>
+      <img class="brand-flag" src="flag-main.jpg" alt="پرچم" />
     </div>
+  </header>
 
-    <div class="section-title">ویدیوهای مهم</div>
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="line1">ما ملت بگیریم، ایران را پس می‌گیریم</div>
+        <div class="line2">رضا پهلوی</div>
+        <div class="line3">پیام مهم برای آینده ایران</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">ویدیوهای مهم</h2>
 
     <div class="video-grid">
       <div class="video-card">
@@ -284,34 +385,4 @@
           <source src="video-1.mp4" type="video/mp4" />
           مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
         </video>
-        <div class="video-text">چشم‌انداز رضا پهلوی برای آینده‌ای دموکراتیک در ایران</div>
-      </div>
-
-      <div class="video-card">
-        <video controls poster="video-2.jpg">
-          <source src="video-2.mp4" type="video/mp4" />
-          مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
-        </video>
-        <div class="video-text">پیامی از ایتالیا به ایرانیان: اشتباه ما را تکرار نکنید</div>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const menuButton = document.getElementById("menuButton");
-    const dropdownMenu = document.getElementById("dropdownMenu");
-
-    menuButton.addEventListener("click", function (e) {
-      e.stopPropagation();
-      dropdownMenu.classList.toggle("open");
-    });
-
-    document.addEventListener("click", function (e) {
-      if (!dropdownMenu.contains(e.target) && !menuButton.contains(e.target)) {
-        dropdownMenu.classList.remove("open");
-      }
-    });
-  </script>
-
-</body>
-</html>
+        <div class="video-text">چشم‌انداز
