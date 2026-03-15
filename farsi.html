@@ -5,8 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>انقلاب شیر و خورشید</title>
   <style>
-    * {
-      box-sizing: border-box;
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -200,6 +202,10 @@
       opacity: 0.95;
     }
 
+    .hero-image-box {
+      display: none;
+    }
+
     .section {
       max-width: 1100px;
       margin: 0 auto;
@@ -208,9 +214,45 @@
 
     .section-title {
       text-align: center;
-     font-size: 28px;
+      font-size: 28px;
       font-weight: 800;
       margin: 0 0 24px;
+    }
+
+    .info-card {
+      background: #fff;
+      border: 2px solid #999;
+      border-radius: 22px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      line-height: 2;
+      font-size: 18px;
+      text-align: right;
+    }
+
+    .info-card p {
+      margin: 0 0 14px;
+    }
+
+    .quick-links {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .quick-links a {
+      display: block;
+      text-decoration: none;
+      background: #fff;
+      border: 2px solid #999;
+      border-radius: 18px;
+      padding: 16px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: #111;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.10);
     }
 
     .video-grid {
@@ -314,11 +356,14 @@
         font-size: 18px;
       }
 
-      .video-grid {
+      .video-grid,
+      .quick-links {
         grid-template-columns: 1fr;
       }
 
-      .video-text {
+      .video-text,
+      .info-card,
+      .quick-links a {
         font-size: 18px;
       }
     }
@@ -351,7 +396,7 @@
       }
     }
 
-    /* لپ‌تاپ و دسکتاپ: عکس کامل، بدون کراپ */
+    /* لپ‌تاپ و دسکتاپ: عکس کامل بدون کراپ */
     @media (min-width: 900px) {
       .hero {
         min-height: auto;
@@ -372,6 +417,7 @@
       }
 
       .hero-image-box {
+        display: block;
         width: 100%;
         max-width: 1100px;
         margin: 0 auto;
@@ -397,16 +443,9 @@
         color: #111;
       }
     }
-
-    @media (max-width: 899px) {
-      .hero-image-box {
-        display: none;
-      }
-    }
   </style>
 </head>
 <body>
-
   <header class="topbar">
     <div class="left-tools">
       <button class="lang-btn" id="langBtn">FA ▾</button>
@@ -418,18 +457,115 @@
     </div>
 
     <nav class="center-nav">
-      <a href="history-fa.html">تاریخ</a>
-      <a href="martyrs-fa.html">عکس جاویدنام‌ها</a>
-      <a href="transition-fa.html">برنامه گذار</a>
-      <a href="urgent-fa.html" class="highlight">اقدامات فوری</a>
-      <a href="contact.html">ارتباط</a>
+      <a href="#history">تاریخ</a>
+      <a href="#martyrs">عکس جاویدنام‌ها</a>
+      <a href="#transition">برنامه گذار</a>
+      <a href="#urgent" class="highlight">اقدامات فوری</a>
+      <a href="#contact">ارتباط</a>
     </nav>
 
     <div class="right-brand">
       <div class="brand-text">
-        رضا پهلوی
-        <small>REZA PAHLAVI</small>
+        انقلاب شیر و خورشید
+        <small>LION & SUN REVOLUTION</small>
       </div>
       <img class="brand-flag" src="flag-main.jpg" alt="پرچم" />
     </div>
-  </header> 
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="line1">ما ملت بگیریم، ایران را پس می‌گیریم</div>
+        <div class="line2">رضا پهلوی</div>
+        <div class="line3">پیام مهم برای آینده ایران</div>
+      </div>
+
+      <div class="hero-image-box">
+        <img src="pahlavi-1.jpg" alt="رضا پهلوی" />
+        <div class="hero-image-caption">پیام مهم</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2 class="section-title">ویدیوهای مهم</h2>
+
+    <div class="video-grid">
+      <div class="video-card">
+        <video controls poster="video-1.jpg">
+          <source src="video-1.mp4" type="video/mp4" />
+          مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+        </video>
+        <div class="video-text">چشم‌انداز رضا پهلوی برای آینده‌ای دموکراتیک در ایران</div>
+      </div>
+
+      <div class="video-card">
+        <video controls poster="video-2.jpg">
+          <source src="video-2.mp4" type="video/mp4" />
+          مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+        </video>
+        <div class="video-text">پیامی از ایتالیا به ایرانیان: اشتباه ما را تکرار نکنید</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="history" class="section">
+    <h2 class="section-title">تاریخ</h2>
+    <div class="info-card">
+      <p>در این بخش می‌توانید مطالب مربوط به تاریخ را قرار بدهید.</p>
+      <p>فعلاً این قسمت را در همان صفحه گذاشتم تا با یک کلیک مستقیم به اینجا بیاید و دیگر صفحه‌ی اضافه باز نشود.</p>
+    </div>
+  </section>
+
+  <section id="martyrs" class="section">
+    <h2 class="section-title">عکس جاویدنام‌ها</h2>
+    <div class="info-card">
+      <p>در این بخش می‌توانید عکس‌ها و یادبود جاویدنام‌ها را قرار بدهید.</p>
+      <p>بعداً اگر خواستی برای این قسمت گالری کامل هم می‌سازیم.</p>
+    </div>
+  </section>
+
+  <section id="transition" class="section">
+    <h2 class="section-title">برنامه گذار</h2>
+    <div class="info-card">
+      <p>در این بخش می‌توانید توضیحات مربوط به برنامه گذار را قرار بدهید.</p>
+      <p>اگر خواستی، لینک کامل یا محتوای کامل برنامه گذار را هم همین‌جا اضافه می‌کنیم.</p>
+    </div>
+  </section>
+
+  <section id="urgent" class="section">
+    <h2 class="section-title">اقدامات فوری</h2>
+    <div class="quick-links">
+      <a href="support-fa.html">حمایت</a>
+      <a href="report-fa.html">ریپورت</a>
+      <a href="petition-fa.html">پتیشن</a>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2 class="section-title">ارتباط</h2>
+    <div class="info-card">
+      <p>در این بخش اطلاعات تماس، ایمیل یا راه‌های ارتباطی قرار می‌گیرد.</p>
+      <p>الان اگر بخواهی می‌توانیم همین‌جا ایمیل و راه‌های تماس را اضافه کنیم.</p>
+    </div>
+  </section>
+
+  <script>
+    const langBtn = document.getElementById("langBtn");
+    const langMenu = document.getElementById("langMenu");
+
+    langBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      langMenu.classList.toggle("open");
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!langMenu.contains(e.target) && !langBtn.contains(e.target)) {
+        langMenu.classList.remove("open");
+      }
+    });
+  </script>
+
+</body>
+</html>
