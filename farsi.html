@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>انقلاب شیر و خورشید</title>
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -30,6 +32,7 @@
     .left-tools {
       position: relative;
       direction: ltr;
+      flex: 0 0 auto;
     }
 
     .lang-btn {
@@ -47,7 +50,7 @@
       position: absolute;
       top: 42px;
       left: 0;
-      width: 140px;
+      width: 150px;
       background: #fff;
       border: 1px solid #ccc;
       border-radius: 10px;
@@ -78,17 +81,29 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-      flex: 1;
+      gap: 16px;
+      flex-wrap: nowrap;
+      flex: 1 1 auto;
+      min-width: 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      white-space: nowrap;
+      padding: 2px 4px;
+    }
+
+    .center-nav::-webkit-scrollbar {
+      display: none;
     }
 
     .center-nav a {
       text-decoration: none;
       color: #222;
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       white-space: nowrap;
+      flex: 0 0 auto;
     }
 
     .center-nav a.highlight {
@@ -104,6 +119,7 @@
       gap: 8px;
       direction: ltr;
       white-space: nowrap;
+      flex: 0 0 auto;
     }
 
     .brand-text {
@@ -192,7 +208,7 @@
 
     .section-title {
       text-align: center;
-      font-size: 28px;
+     font-size: 28px;
       font-weight: 800;
       margin: 0 0 24px;
     }
@@ -225,13 +241,26 @@
       line-height: 1.7;
     }
 
-    @media (max-width: 980px) {
+    @media (max-width: 1100px) {
+      .center-nav a {
+        font-size: 15px;
+      }
       .center-nav {
-        gap: 12px;
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .topbar {
+        gap: 10px;
       }
 
       .center-nav a {
-        font-size: 16px;
+        font-size: 14px;
+      }
+
+      .center-nav {
+        gap: 12px;
       }
 
       .hero-text .line1 {
@@ -261,7 +290,7 @@
       .center-nav {
         order: 3;
         width: 100%;
-        justify-content: center;
+        justify-content: flex-start;
         padding-top: 4px;
       }
 
@@ -314,11 +343,64 @@
       }
 
       .center-nav a {
-        font-size: 15px;
+        font-size: 14px;
       }
 
       .hero-text .line2 {
         font-size: 32px;
+      }
+    }
+
+    /* لپ‌تاپ و دسکتاپ: عکس کامل، بدون کراپ */
+    @media (min-width: 900px) {
+      .hero {
+        min-height: auto;
+        background: #d9f6f7;
+      }
+
+      .hero::before {
+        display: none;
+      }
+
+      .hero-content {
+        min-height: auto;
+        padding: 24px 16px 0;
+      }
+
+      .hero-text {
+        display: none;
+      }
+
+      .hero-image-box {
+        width: 100%;
+        max-width: 1100px;
+        margin: 0 auto;
+        background: #fff;
+        border: 2px solid #999;
+        border-radius: 22px;
+        padding: 14px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+      }
+
+      .hero-image-box img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 18px;
+      }
+
+      .hero-image-caption {
+        margin-top: 12px;
+        font-size: 20px;
+        font-weight: 700;
+        color: #111;
+      }
+    }
+
+    @media (max-width: 899px) {
+      .hero-image-box {
+        display: none;
       }
     }
   </style>
@@ -350,55 +432,4 @@
       </div>
       <img class="brand-flag" src="flag-main.jpg" alt="پرچم" />
     </div>
-  </header>
-
-  <section class="hero">
-    <div class="hero-content">
-      <div class="hero-text">
-        <div class="line1">ما ملت بگیریم، ایران را پس می‌گیریم</div>
-        <div class="line2">رضا پهلوی</div>
-        <div class="line3">پیام مهم برای آینده ایران</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <h2 class="section-title">ویدیوهای مهم</h2>
-
-    <div class="video-grid">
-      <div class="video-card">
-        <video controls poster="video-1.jpg">
-          <source src="video-1.mp4" type="video/mp4" />
-          مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
-        </video>
-        <div class="video-text">چشم‌انداز رضا پهلوی برای آینده‌ای دموکراتیک در ایران</div>
-      </div>
-
-      <div class="video-card">
-        <video controls poster="video-2.jpg">
-          <source src="video-2.mp4" type="video/mp4" />
-          مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
-        </video>
-        <div class="video-text">پیامی از ایتالیا به ایرانیان: اشتباه ما را تکرار نکنید</div>
-      </div>
-    </div>
-  </section>
-
-  <script>
-    const langBtn = document.getElementById("langBtn");
-    const langMenu = document.getElementById("langMenu");
-
-    langBtn.addEventListener("click", function (e) {
-      e.stopPropagation();
-      langMenu.classList.toggle("open");
-    });
-
-    document.addEventListener("click", function (e) {
-      if (!langMenu.contains(e.target) && !langBtn.contains(e.target)) {
-        langMenu.classList.remove("open");
-      }
-    });
-  </script>
-
-</body>
-</html>
+  </header> 
