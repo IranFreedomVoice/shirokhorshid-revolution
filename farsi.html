@@ -114,31 +114,25 @@
     .right-brand {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       direction: ltr;
       white-space: nowrap;
       flex: 0 0 auto;
     }
 
     .brand-text {
-      font-size: 15px;
+      font-size: 18px;
       font-weight: 700;
       line-height: 1.1;
       text-align: right;
-    }
-
-    .brand-text small {
-      display: block;
-      font-size: 11px;
-      font-weight: 700;
-      color: #444;
+      white-space: nowrap;
     }
 
     .brand-flag {
-      width: 42px;
-      height: 42px;
+      width: 52px;
+      height: 52px;
       object-fit: cover;
-      border-radius: 8px;
+      border-radius: 10px;
       border: 1px solid #ccc;
       background: #fff;
     }
@@ -208,8 +202,7 @@
       padding: 34px 16px 50px;
     }
 
-    .
-    section-title {
+    .section-title {
       text-align: center;
       font-size: 28px;
       font-weight: 800;
@@ -283,13 +276,22 @@
       .hero-text .line3 { font-size: 18px; }
       .video-grid { grid-template-columns: 1fr; }
       .video-text { font-size: 18px; }
+
+      .brand-text {
+        font-size: 15px;
+      }
+
+      .brand-flag {
+        width: 44px;
+        height: 44px;
+      }
     }
 
     @media (max-width: 480px) {
-      .brand-text { font-size: 13px; }
+      .brand-text { font-size: 14px; }
       .brand-flag {
-        width: 36px;
-        height: 36px;
+        width: 40px;
+        height: 40px;
       }
       .lang-btn {
         padding: 6px 10px;
@@ -300,7 +302,6 @@
       .hero-text .line2 { font-size: 32px; }
     }
 
-    /* لپ‌تاپ و دسکتاپ: عکس کامل بدون کراپ */
     @media (min-width: 900px) {
       .hero {
         min-height: auto;
@@ -370,10 +371,7 @@
     </nav>
 
     <div class="right-brand">
-      <div class="brand-text">
-        انقلاب شیر و خورشید
-        <small>LION & SUN REVOLUTION</small>
-      </div>
+      <div class="brand-text">انقلاب شیر و خورشید</div>
       <img class="brand-flag" src="flag-main.jpg" alt="پرچم" />
     </div>
   </header>
@@ -385,6 +383,7 @@
         <div class="line2">رضا پهلوی</div>
         <div class="line3">پیام مهم برای آینده ایران</div>
       </div>
+
       <div class="hero-image-box">
         <img src="pahlavi-1.jpg" alt="رضا پهلوی" />
         <div class="hero-image-caption">پیام مهم</div>
