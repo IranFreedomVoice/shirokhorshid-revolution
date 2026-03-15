@@ -5,9 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>انقلاب شیر و خورشید</title>
   <style>
-    * {
-      box-sizing: border-box;
-    }
+    * { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -88,7 +86,7 @@
     .center-nav a {
       text-decoration: none;
       color: #222;
-      font-size: 15px;
+      font-size: 18px;
       font-weight: 700;
       white-space: nowrap;
     }
@@ -96,7 +94,7 @@
     .center-nav a.highlight {
       background: #f3a9a9;
       color: #4b1d1d;
-      padding: 7px 12px;
+      padding: 8px 14px;
       border-radius: 999px;
     }
 
@@ -156,13 +154,13 @@
       min-height: 78vh;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: center;
       padding: 50px 24px;
-      text-align: right;
+      text-align: center;
     }
 
     .hero-text {
-      max-width: 620px;
+      max-width: 700px;
       color: #fff;
       text-shadow: 0 2px 8px rgba(0,0,0,0.35);
     }
@@ -228,16 +226,12 @@
     }
 
     @media (max-width: 980px) {
-      .topbar {
-        gap: 10px;
-      }
-
       .center-nav {
         gap: 12px;
       }
 
       .center-nav a {
-        font-size: 14px;
+        font-size: 16px;
       }
 
       .hero-text .line1 {
@@ -277,12 +271,6 @@
 
       .hero-content {
         min-height: 62vh;
-        justify-content: center;
-        text-align: center;
-      }
-
-      .hero-text {
-        text-align: center;
       }
 
       .hero-text .line1 {
@@ -326,7 +314,7 @@
       }
 
       .center-nav a {
-        font-size: 13px;
+        font-size: 15px;
       }
 
       .hero-text .line2 {
@@ -348,13 +336,11 @@
     </div>
 
     <nav class="center-nav">
-      <a href="about-fa.html">درباره</a>
-      <a href="statement-fa.html">بیانیه‌ها</a>
-      <a href="news-fa.html">خبرها</a>
-      <a href="videos-fa.html">ویدیوها</a>
-      <a href="sources-fa.html">منابع</a>
-      <a href="contact.html">ارتباط</a>
+      <a href="history-fa.html">تاریخ</a>
+      <a href="martyrs-fa.html">عکس جاویدنام‌ها</a>
+      <a href="transition-fa.html">برنامه گذار</a>
       <a href="urgent-fa.html" class="highlight">اقدامات فوری</a>
+      <a href="contact.html">ارتباط</a>
     </nav>
 
     <div class="right-brand">
@@ -385,4 +371,34 @@
           <source src="video-1.mp4" type="video/mp4" />
           مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
         </video>
-        <div class="video-text">چشم‌انداز
+        <div class="video-text">چشم‌انداز رضا پهلوی برای آینده‌ای دموکراتیک در ایران</div>
+      </div>
+
+      <div class="video-card">
+        <video controls poster="video-2.jpg">
+          <source src="video-2.mp4" type="video/mp4" />
+          مرورگر شما از پخش ویدیو پشتیبانی نمی‌کند.
+        </video>
+        <div class="video-text">پیامی از ایتالیا به ایرانیان: اشتباه ما را تکرار نکنید</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const langBtn = document.getElementById("langBtn");
+    const langMenu = document.getElementById("langMenu");
+
+    langBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      langMenu.classList.toggle("open");
+    });
+
+    document.addEventListener("click", function (e) {
+      if (!langMenu.contains(e.target) && !langBtn.contains(e.target)) {
+        langMenu.classList.remove("open");
+      }
+    });
+  </script>
+
+</body>
+</html>
