@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta  charset="UTF-8" />
-  <meta name ="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shir-o-Khorshid Revolution</title>
   <style>
-    * {
-      box-sizing:   border-box;
-    }
+    * { box-sizing: border-box; }
 
     html, body {
       margin: 0;
@@ -41,7 +39,7 @@
       background: rgba(0,0,0,0.35);
       padding: 6px 10px;
       border-radius: 10px;
-      z-index: 5;
+      z-index: 20;
     }
 
     .top-controls {
@@ -51,7 +49,7 @@
       display: flex;
       align-items: center;
       gap: 8px;
-      z-index: 5;
+      z-index: 20;
     }
 
     .lang-mini {
@@ -80,6 +78,40 @@
       line-height: 1;
       cursor: pointer;
       user-select: none;
+      border: none;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 62px;
+      right: 14px;
+      width: 260px;
+      background: rgba(0, 70, 35, 0.96);
+      border-radius: 16px;
+      padding: 12px;
+      z-index: 30;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+    }
+
+    .dropdown-menu.open {
+      display: block;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      background: rgba(255,255,255,0.10);
+      text-align: left;
+    }
+
+    .dropdown-menu a:last-child {
+      margin-bottom: 0;
     }
 
     .container {
@@ -100,8 +132,9 @@
 
     .hero-box img {
       width: 100%;
-      max-height: 430px;
-      object-fit: cover;
+      max-height: 700px;
+      height: auto;
+      object-fit: contain;
       border-radius: 18px;
       display: block;
     }
@@ -182,6 +215,12 @@
         padding: 4px 8px;
       }
 
+      .dropdown-menu {
+        top: 54px;
+        right: 10px;
+        width: 220px;
+      }
+
       .hero-caption,
       .video-text {
         font-size: 18px;
@@ -202,7 +241,17 @@
         <a href="farsi.html">FA</a>
         <a href="deutsch.html">DE</a>
       </div>
-      <div class="menu-icon">☰</div>
+      <button class="menu-icon" onclick="toggleMenu()">☰</button>
+    </div>
+
+    <div id="dropdownMenu" class="dropdown-menu">
+      <a href="history-en.html">History</a>
+      <a href="martyrs-en.html">Photos of the Victims</a>
+      <a href="transition-en.html">Transition Plan by Crown Prince Reza Pahlavi</a>
+      <a href="support-fa.html">Support</a>
+      <a href="report-fa.html">Report</a>
+      <a href="petition-fa.html">Petition</a>
+      <a href="contact.html">Contact</a>
     </div>
   </div>
 
@@ -211,6 +260,7 @@
       <img src="pahlavi-1.jpg" alt="Prince Reza Pahlavi" />
       <div class="hero-caption">Important Message</div>
     </div>
+
     <div class="section-title">Important Videos</div>
 
     <div class="video-grid">
@@ -231,6 +281,20 @@
       </div>
     </div>
   </div>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("dropdownMenu").classList.toggle("open");
+    }
+
+    document.addEventListener("click", function (event) {
+      const menu = document.getElementById("dropdownMenu");
+      const button = document.querySelector(".menu-icon");
+      if (!menu.contains(event.target) && !button.contains(event.target)) {
+        menu.classList.remove("open");
+      }
+    });
+  </script>
 
 </body>
 </html>
