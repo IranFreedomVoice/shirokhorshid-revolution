@@ -34,121 +34,131 @@
       width: 100%;
       max-width: 1100px;
       margin: 0 auto;
-      padding: 24px 20px 60px;
+      padding: 26px 24px 110px;
     }
 
     .page-mark {
-      text-align: left;
-      font-size: 15px;
+      text-align: right;
+      font-size: 16px;
       font-weight: 700;
       color: #222;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
 
-    .main-box {
+    .buttons-wrap {
       width: 100%;
-      max-width: 760px;
-      background: #eef9fa;
-      border: 2px solid #b7cfd1;
-      border-radius: 24px;
-      padding: 24px 20px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.10);
-    }
-
-    .title {
-      font-size: 34px;
-      font-weight: 800;
-      margin: 0 0 18px;
-      text-align: left;
-    }
-
-    .text {
-      font-size: 20px;
-      line-height: 1.9;
-      margin: 0 0 22px;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
     }
 
     .contact-button {
       display: block;
       width: 100%;
-      max-width: 580px;
-      padding: 13px 18px;
-      border-radius: 28px;
+      padding: 12px 14px;
+      border-radius: 18px;
       border: 2px solid #888;
-      background: linear-gradient(to right, #ef1c1c 0%, #ffffff 50%, #19b543 100%);
+      background: linear-gradient(to left, #19b543 0%, #ffffff 50%, #ef1c1c 100%);
       color: #111;
       font-size: 18px;
       font-weight: 700;
       text-decoration: none;
       text-align: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-      margin-bottom: 14px;
-    }
-
-    .email-text {
-      font-size: 20px;
-      font-weight: 700;
-      margin-top: 8px;
-      word-break: break-word;
     }
 
     .back-btn {
+      position: fixed;
+      left: 18px;
+      bottom: 85px;
       display: inline-block;
-      margin-top: 26px;
-      padding: 11px 22px;
-      border-radius: 14px;
+      padding: 8px 16px;
       background: #fff;
       border: 2px solid #888;
-      color: #000;
+      border-radius: 12px;
+      color: #111;
       text-decoration: none;
+      font-size: 14px;
       font-weight: 700;
-      font-size: 16px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.12);
+      z-index: 9999;
+    }
+
+    @media (max-width: 900px) {
+      .page-mark {
+        font-size: 15px;
+      }
+
+      .buttons-wrap {
+        max-width: 380px;
+      }
+
+      .contact-button {
+        font-size: 17px;
+        padding: 11px 13px;
+      }
     }
 
     @media (max-width: 600px) {
       .container {
-        padding: 20px 16px 50px;
+        padding: 20px 16px 100px;
       }
 
-      .title {
-        font-size: 28px;
+      .page-mark {
+        font-size: 14px;
+        margin-bottom: 18px;
       }
 
-      .text,
-      .email-text {
-        font-size: 17px;
+      .buttons-wrap {
+        max-width: 280px;
       }
 
       .contact-button {
-        max-width: 100%;
         font-size: 16px;
-        padding: 12px 14px;
+        padding: 11px 12px;
+        border-radius: 15px;
+      }
+
+      .back-btn {
+        left: 14px;
+        bottom: 95px;
+        font-size: 13px;
+        padding: 7px 14px;
       }
     }
   </style>
 </head>
 <body>
+
   <div class="top-flag">
-    <img src="flag-main.jpg" alt="Flag" />
+    <img src="flag.main.jpg" alt="Flag" />
   </div>
 
   <div class="container">
-    <div class="page-mark">Contact</div>
+    <div class="page-mark">Shir-o-khorshid Revolution</div>
 
-    <div class="main-box">
-      <h1 class="title">Contact</h1>
-      <p class="text">
-        To contact us, please use the email address below.
-      </p>
-
-      <a class="contact-button" href="mailto:freedom.voice.for.iran@gmail.com">
-        Send E-mail
+    <div class="buttons-wrap">
+      <a class="contact-button" href="mailto:freedom.voice.for.iran@gmail.com?subject=Contact">
+        E-mail
       </a>
 
-      <div class="email-text">freedom.voice.for.iran@gmail.com</div>
-    </div>
+      <a class="contact-button" href="https://www.instagram.com/shirokhorshid_revolution?igsh=aW5kbm0za2cwYzNj" target="_blank">
+        Instagram
+      </a>
 
-    <a class="back-btn" href="index.html">Back</a>
+      <a class="contact-button" href="https://x.com/shahduneh?s=21" target="_blank">
+        X
+      </a>
+
+      <a class="contact-button" href="https://t.me/+m1-XQEiPZL1kNzIy" target="_blank">
+        Telegram
+      </a>
+    </div>
   </div>
+
+  <a class="back-btn" href="index.html">Back</a>
+
 </body>
 </html>
