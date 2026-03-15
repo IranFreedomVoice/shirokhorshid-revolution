@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Schir-o-Chorschid-Revolution</title>
+  <title>Shir-o-Khorshid Revolution</title>
   <style>
     * {
       box-sizing: border-box;
@@ -12,8 +12,6 @@
     html, body {
       margin: 0;
       padding: 0;
-      width: 100%;
-      min-height: 100%;
       background: #d9f6f7;
       font-family: Arial, sans-serif;
       color: #111;
@@ -22,11 +20,10 @@
     .hero {
       position: relative;
       width: 100%;
-      overflow: hidden;
       background: #000;
     }
 
-    .hero img.flag {
+    .hero .flag {
       width: 100%;
       display: block;
     }
@@ -35,23 +32,23 @@
       position: absolute;
       top: 14px;
       left: 16px;
+      z-index: 50;
       color: #fff;
       font-size: 16px;
       font-weight: 700;
       background: rgba(0,0,0,0.35);
       padding: 6px 10px;
       border-radius: 10px;
-      z-index: 5;
     }
 
     .top-controls {
       position: absolute;
       top: 12px;
       right: 14px;
+      z-index: 60;
       display: flex;
       align-items: center;
       gap: 8px;
-      z-index: 5;
     }
 
     .lang-mini {
@@ -71,15 +68,52 @@
     }
 
     .menu-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 40px;
+      border: none;
+      cursor: pointer;
       color: #fff;
       font-size: 24px;
       font-weight: 700;
       background: rgba(0,0,0,0.35);
-      padding: 4px 10px;
       border-radius: 10px;
-      line-height: 1;
-      cursor: pointer;
-      user-select: none;
+      z-index: 70;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 58px;
+      right: 14px;
+      width: 270px;
+      background: rgba(0, 70, 35, 0.97);
+      border-radius: 16px;
+      padding: 12px;
+      z-index: 80;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.22);
+    }
+
+    .dropdown-menu.open {
+      display: block;
+    }
+
+    .dropdown-menu a {
+      display: block;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+      padding: 10px 12px;
+      border-radius: 12px;
+      margin-bottom: 8px;
+      background: rgba(255,255,255,0.10);
+      text-align: left;
+    }
+
+    .dropdown-menu a:last-child {
+      margin-bottom: 0;
     }
 
     .container {
@@ -100,10 +134,10 @@
 
     .hero-box img {
       width: 100%;
-      max-height: 430px;
-      object-fit: cover;
-      border-radius: 18px;
+      height: auto;
       display: block;
+      border-radius: 18px;
+      object-fit: contain;
     }
 
     .hero-caption {
@@ -178,59 +212,9 @@
       }
 
       .menu-icon {
+        width: 40px;
+        height: 36px;
         font-size: 20px;
-        padding: 4px 8px;
       }
 
-      .hero-caption,
-      .video-text {
-        font-size: 18px;
-      }
-    }
-  </style>
-</head>
-<body>
-
-  <div class="hero">
-    <img class="flag" src="flag-main.jpg" alt="Löwe-und-Sonne-Flagge" />
-
-    <div class="site-title">Shir-o-Khorshid Revolution</div>
-
-    <div class="top-controls">
-      <div class="lang-mini">
-        <a href="index.html">EN</a>
-        <a href="farsi.html">FA</a>
-        <a href="deutsch.html">DE</a>
-      </div>
-      <div class="menu-icon">☰</div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="hero-box">
-      <img src="pahlavi-1.jpg" alt="Prinz Reza Pahlavi" />
-      <div class="hero-caption">Wichtige Botschaft</div>
-    </div>
-    <div class="section-title">Wichtige Videos</div>
-
-    <div class="video-grid">
-      <div class="video-card">
-        <video controls poster="video-1.jpg">
-          <source src="video-1.mp4" type="video/mp4" />
-          Ihr Browser unterstützt das Video-Tag nicht.
-        </video>
-        <div class="video-text">Reza Pahlavis Vision für eine demokratische Zukunft Irans</div>
-      </div>
-
-      <div class="video-card">
-        <video controls poster="video-2.jpg">
-          <source src="video-2.mp4" type="video/mp4" />
-          Ihr Browser unterstützt das Video-Tag nicht.
-        </video>
-        <div class="video-text">Eine Botschaft aus Italien an die Iraner: Wiederholt unseren Fehler nicht</div>
-      </div>
-    </div>
-  </div>
-
-</body>
-</html>
+      .
